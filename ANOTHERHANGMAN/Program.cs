@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 
 namespace ANOTHERHANGMAN
 {
@@ -6,8 +8,9 @@ namespace ANOTHERHANGMAN
     {
         static void Main(string[] args)
         {
-            string hangmanheader = System.IO.File.ReadAllText(@"C:\ElevenFiftyProjects\Gold Badge\HangmanHeader.txt");
-
+            string hangmanheader = System.IO.File.ReadAllText("../../Assets/HangmanHeader.txt");
+            //string hangmanheader = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Assets\HangmanHeader.txt");
+            //string[] files = File.ReadAllLines(hangmanheader);
             bool continueToRun = true;
             while (continueToRun)
             {
@@ -34,13 +37,13 @@ namespace ANOTHERHANGMAN
             void runHangman()
             {
                 string[] hangMan = {
-                    @"C:\ElevenFiftyProjects\Gold Badge\Zerostrikes.txt",
-                    @"C:\ElevenFiftyProjects\Gold Badge\OneStrike.txt",
-                    @"C:\ElevenFiftyProjects\Gold Badge\Twostrikes.txt",
-                    @"C:\ElevenFiftyProjects\Gold Badge\ThreeStrikes.txt",
-                    @"C:\ElevenFiftyProjects\Gold Badge\FourStrikes.txt",
-                    @"C:\ElevenFiftyProjects\Gold Badge\FiveStrikes.txt",
-                    @"C:\ElevenFiftyProjects\Gold Badge\SixStrikes.txt" };
+                    @"../../Assets/Zerostrikes.txt",
+                    @"../../Assets/OneStrike.txt",
+                    @"../../Assets/Twostrikes.txt",
+                    @"../../Assets/ThreeStrikes.txt",
+                    @"../../Assets/FourStrikes.txt",
+                    @"../../Assets/FiveStrikes.txt",
+                    @"../../Assets/SixStrikes.txt" };
 
                 string[] listwords = new string[15];
                 listwords[0] = "pizza";
@@ -67,52 +70,31 @@ namespace ANOTHERHANGMAN
                 int life = 6;
                 string mysteryWord = listwords[index];
                 char[] guess = new char[mysteryWord.Length];
-                // Console.Write("Please enter your guess: ");
-                Console.Write("Guess a letter!\n");
-                //string guessChoice = Console.ReadLine();
-                //switch (guessChoice)
-                //{
-                //    case "1":
-                //        for (int p = 0; p < mysteryWord.Length; p++)
-                //            guess[p] = '_';
+             
+                Console.Write("Guess a letter and seal your fate!\n");
 
-                //        while (true)
-                //        {
-                //            char playerGuess = char.Parse(Console.ReadLine());
-                //            for (int j = 0; j < mysteryWord.Length; j++)
-                //            {
-                //                if (playerGuess == mysteryWord[j])
-                //                    guess[j] = playerGuess;
-                //            }
-                //            Console.WriteLine(guess);
-                //            bool hasSpaces = guess.Contains(' ');
-                //            if (true)
-                //            {
-                //                Console.WriteLine("Please enter a letter!");
-                //            }
-                //        }
-                //        break;
-                //    case "2":
-                //        Console.WriteLine("This worked");
-                //        break;
-
-
-                //    default:
-                //        break;
-                //}
-                char[] word_track = new char[mysteryWord.Length];
 
                 for (int p = 0; p < mysteryWord.Length; p++)
                     guess[p] = '_';
 
-
                 while (true)
                 {
+                    char playerGuess;
                     int count = 0;
-                    char playerGuess = char.Parse(Console.ReadLine());
+                    try
+                    {
+                        playerGuess = char.Parse(Console.ReadLine());
+                    }
+                    catch (System.FormatException )
+                    {
+                        Console.WriteLine("Please only enter one letter!");
+                        continue;
+                    }
+                   
                     Console.Clear();
-                    
-                    
+
+                    //char playerGuess = char.Parse(Console.ReadLine());
+
                     for (int j = 0; j < mysteryWord.Length; j++)
                     {
                         if (playerGuess == mysteryWord[j])
@@ -123,14 +105,7 @@ namespace ANOTHERHANGMAN
                         else if (playerGuess == ' ')
                         {
                             continue;
-                            
                         }
-                       
-                       //// else if (playerGuess)
-                       // {
-                       //     continue;
-                       // }
-
                         else
                         {
                             count++;
@@ -142,7 +117,6 @@ namespace ANOTHERHANGMAN
                             hang++;
                         }
                     }
-
                     switch (hang)
                     {
                         case 0:
@@ -170,7 +144,7 @@ namespace ANOTHERHANGMAN
                             break;
                     }
 
-                    Console.Write(word_track);
+                    //Console.Write(word_track);
                     Console.ForegroundColor
                     = ConsoleColor.Red;
                     Console.WriteLine("\n\n\t\tWrong letter: ({0})\n\t\tYou have {1} lives left", wrong, life);
