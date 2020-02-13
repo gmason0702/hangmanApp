@@ -1,0 +1,11 @@
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\obj\Debug\netcoreapp3.1\ANOTHERHANGMAN.csprojAssemblyReference.cache
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\obj\Debug\netcoreapp3.1\ANOTHERHANGMAN.AssemblyInfoInputs.cache
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\obj\Debug\netcoreapp3.1\ANOTHERHANGMAN.AssemblyInfo.cs
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\bin\Debug\netcoreapp3.1\ANOTHERHANGMAN.exe
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\bin\Debug\netcoreapp3.1\ANOTHERHANGMAN.deps.json
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\bin\Debug\netcoreapp3.1\ANOTHERHANGMAN.runtimeconfig.json
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\bin\Debug\netcoreapp3.1\ANOTHERHANGMAN.runtimeconfig.dev.json
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\bin\Debug\netcoreapp3.1\ANOTHERHANGMAN.dll
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\bin\Debug\netcoreapp3.1\ANOTHERHANGMAN.pdb
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\obj\Debug\netcoreapp3.1\ANOTHERHANGMAN.dll
+C:\Users\Gordon\source\repos\ANOTHERHANGMAN\ANOTHERHANGMAN\obj\Debug\netcoreapp3.1\ANOTHERHANGMAN.pdb
