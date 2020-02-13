@@ -16,9 +16,9 @@ namespace ANOTHERHANGMAN
             {
                 Console.ForegroundColor
                     = ConsoleColor.Red;
-                Console.WriteLine($"{hangmanheader}\n" +
-                        "1.) Begin Game\n" +
-                        "2.) Exit");
+                Console.WriteLine($"{hangmanheader}\n\n" +
+                        "\t\t\t\t\t\t\t1.) Begin Game\n" +
+                        "\t\t\t\t\t\t\t2.) Exit");
                 string userInput = Console.ReadLine();
                 // userInput = userInput.Replace(" ", "");
 
@@ -64,9 +64,9 @@ namespace ANOTHERHANGMAN
 
                 Random randGen = new Random();
                 var index = randGen.Next(0, 14);
-                int win = 0;
+                int correctGuess = 0;
                 int hang = 0;
-                string wrong = "";
+                string miss = "";
                 int life = 6;
                 string mysteryWord = listwords[index];
                 char[] guess = new char[mysteryWord.Length];
@@ -100,7 +100,7 @@ namespace ANOTHERHANGMAN
                         if (playerGuess == mysteryWord[j])
                         {
                             guess[j] = playerGuess;
-                            win++;
+                            correctGuess++;
                         }
                         else if (playerGuess == ' ')
                         {
@@ -112,7 +112,7 @@ namespace ANOTHERHANGMAN
                         }
                         if (count == mysteryWord.Length)
                         {
-                            wrong += playerGuess + ", ";
+                            miss += playerGuess + ", ";
                             life--;
                             hang++;
                         }
@@ -147,12 +147,13 @@ namespace ANOTHERHANGMAN
                     //Console.Write(word_track);
                     Console.ForegroundColor
                     = ConsoleColor.Red;
-                    Console.WriteLine("\n\n\t\tWrong letter: ({0})\n\t\tYou have {1} lives left", wrong, life);
+                    Console.WriteLine("\n\n\t\tWrong guess: ({0})\n\t\tYou have {1} lives left", miss, life);
                     //Console.WriteLine(hangMan[hang]);
                     Console.WriteLine(guess);
-                    if (win == mysteryWord.Length)
+                    if (correctGuess == mysteryWord.Length)
                     {
-                        Console.WriteLine("Congratulations, you have survived a gruesome death!");
+                        //Console.WriteLine("Congratulations, you have survived a gruesome death!");
+                        Console.WriteLine(System.IO.File.ReadAllText("../../Assets/winner2.txt"));
                         break;
                     }
                     else if (life == 0)
