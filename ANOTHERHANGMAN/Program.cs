@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -94,12 +95,13 @@ namespace ANOTHERHANGMAN
                     Console.Clear();
 
                     //char playerGuess = char.Parse(Console.ReadLine());
-
+                    //List<char> guessCache = new List<char>();
                     for (int j = 0; j < mysteryWord.Length; j++)
                     {
                         if (playerGuess == mysteryWord[j])
                         {
                             guess[j] = playerGuess;
+
                             correctGuess++;
                         }
                         else if (playerGuess == ' ')
@@ -112,6 +114,7 @@ namespace ANOTHERHANGMAN
                         }
                         if (count == mysteryWord.Length)
                         {
+                 
                             miss += playerGuess + ", ";
                             life--;
                             hang++;
@@ -149,10 +152,16 @@ namespace ANOTHERHANGMAN
                     = ConsoleColor.Red;
                     Console.WriteLine("\n\n\t\tWrong guess: ({0})\n\t\tYou have {1} lives left", miss, life);
                     //Console.WriteLine(hangMan[hang]);
-                    Console.WriteLine(guess);
+                    Console.WriteLine(" ");
+                    foreach ( var l in guess)
+                    {
+                        Console.Write($"{l}  ");
+                    }   
+                    //Console.WriteLine(guess);
                     if (correctGuess == mysteryWord.Length)
                     {
                         //Console.WriteLine("Congratulations, you have survived a gruesome death!");
+                        Console.WriteLine("\n");
                         Console.WriteLine(System.IO.File.ReadAllText("../../Assets/winner2.txt"));
                         break;
                     }
