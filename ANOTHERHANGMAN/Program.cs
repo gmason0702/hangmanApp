@@ -10,8 +10,7 @@ namespace ANOTHERHANGMAN
         static void Main(string[] args)
         {
             string hangmanheader = System.IO.File.ReadAllText("../../Assets/HangmanHeader.txt");
-            //string hangmanheader = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Assets\HangmanHeader.txt");
-            //string[] files = File.ReadAllLines(hangmanheader);
+       
             bool continueToRun = true;
             while (continueToRun)
             {
@@ -21,7 +20,6 @@ namespace ANOTHERHANGMAN
                         "\t\t\t\t\t\t\t1.) Begin Game\n" +
                         "\t\t\t\t\t\t\t2.) Exit");
                 string userInput = Console.ReadLine();
-                // userInput = userInput.Replace(" ", "");
 
                 Console.Clear();
 
@@ -91,7 +89,6 @@ namespace ANOTHERHANGMAN
                         Console.WriteLine("Please only enter one letter!");
                         continue;
                     }
-                   
                     Console.Clear();
 
                     //char playerGuess = char.Parse(Console.ReadLine());
@@ -147,20 +144,16 @@ namespace ANOTHERHANGMAN
                             break;
                     }
 
-                    //Console.Write(word_track);
                     Console.ForegroundColor
                     = ConsoleColor.Red;
                     Console.WriteLine("\n\n\t\tWrong guess: ({0})\n\t\tYou have {1} lives left", miss, life);
-                    //Console.WriteLine(hangMan[hang]);
                     Console.WriteLine(" ");
                     foreach ( var l in guess)
                     {
                         Console.Write($"{l}  ");
                     }   
-                    //Console.WriteLine(guess);
                     if (correctGuess == mysteryWord.Length)
                     {
-                        //Console.WriteLine("Congratulations, you have survived a gruesome death!");
                         Console.WriteLine("\n");
                         Console.WriteLine(System.IO.File.ReadAllText("../../Assets/winner2.txt"));
                         break;
